@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Choose your plan!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+{% endblock %}
+
+{% block body %}
+<div class="section" style="margin:20px">
+{% if successTxt != null %}
+<div class="alert alert-success" role="alert">
+  {{successTxt}}
+</div>
+{% endif %}
+
+{% for ca in candidateArray %}
+    <div class="row">
+    {% for c in ca %}
+        <div class="col-sm">  
+            <div class="card fluid" >
+                    <img class="card-img-top" src="{{asset('img/maaj01.jfif')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{c.firstname}} <spam class="num">{{c.numero}}</spam></h5>
+                    <form>
+                    <p class="card-text">
+                    <input type="hidden" value="votepage" name="mpage">
+                    <input type="hidden" value="{{c.id}}" name="candid">
+                    <select name="voteid" id="select" class="sign__select" style="width: 100%">
+										
+										{% for votem in votemode %}
+										<option value="{{votem.id}}">{{votem.description}}</option>
+										{% endfor %}
+									</select>
+                    
+                    </p>
+                    <button type="submit" class="sign__btn"  formmethod="post" formaction="{{path('app_payment')}}" >Payer</button>
+									</form>	
+                </div>
+            </div>
+        </div>  
+    {% endfor %}
+        
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

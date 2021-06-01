@@ -1,0 +1,12 @@
+<div style="width:50%;margin: auto;">
+            <p style="color:#FFFFFF;font-size: 70px; text-align: center; text-shadow: whitesmoke; font-weight: bolder;">
+                The best Online Cinema
+			</p>
+			<p class="section__text" style="margin: auto; text-align: center;">No hidden fees, equipment rentals, or installation appointments.</p>
+			<br>
+			<div style="margin: auto;">
+			<a href="{{path('app_register')}}">
+				<button type="button" class="plan__btn">Get started</button>
+			</a>
+			</div>
+		</div>

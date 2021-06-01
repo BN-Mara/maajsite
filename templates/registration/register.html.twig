@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+{% endblock %}
+
+
+
+{% block body %}
+<div class="container">
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+</div>
+<section class="section ">
+<div class="d-flex justify-content-center">
+<div class="container card" style="width: 25rem;"> 
+<br>    
+<h1 class="text-center">Create Account</h1>
+
+<br>
+		
+      <div class="container" style="width:100%">  
+
+    {{ form_start(registrationForm) }}
+    
+        {{ form_row(registrationForm.email) }}
+        
+       
+        {{ form_row(registrationForm.plainPassword,{
+            label:"Password",
+        }) }}
+
+     
+        <br>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Register</button>
+        
+    {{ form_end(registrationForm) }}
+    <br>
+    </div>
+    </div>
+  </div>
+    </section>
+
+{% block javascripts %}
+
+
+<script src="{{ asset('js/proper.js') }}"></script>
+<script src="{{ asset('js/metro.js') }}"></script>
+{% endblock %}
+
+
+
+{% endblock %}

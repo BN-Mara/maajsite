@@ -1,0 +1,15 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+app_payment_canceled:
+    path: /payment/cancel
+    controller: App\Controller\PaymentController::canceledPayment
+
+app_payment_complete:
+    path: /payment/complete
+    controller: App\Controller\PaymentController::completedPayment
+
+app_payment:
+    path: /payment
+    controller: App\Controller\PaymentController::payment
+
