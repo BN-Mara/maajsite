@@ -8,19 +8,23 @@ use App\Entity\Vote;
 use App\Entity\VoteMode;
 use App\Form\SubscriptionType;
 use App\Form\VoteType;
+use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class BaseController extends AbstractController
 {
     private $session;
+    private $serializer;
 
-    public function __construct(SessionInterface $session)
+    public function __construct(SessionInterface $session, SerializerInterface $serializer)
     {
         $this->session = $session;
+        $this->serializer  = $serializer;
     }
 
     /**
@@ -90,9 +94,23 @@ class BaseController extends AbstractController
     }
 
     /**
-     * @Route("/watch", name="video")
+     * @Route("watch", name="video")
      */
     public function video(Request $request):Response
+    {
+        $vote = new Vote();
+        $form = $this->createForm(VoteType::class,$vote);
+
+        $votemode = $this->getDoctrine()->getRepository(VoteMode::class)->findAll();
+        $candidate = $this->getDoctrine()->getRepository(Candidate::class)->findAll();
+        
+        return $this->render('base/myhome.html.twig',["voteForm"=>$form->createView(), "votemode"=>$votemode, "candidate"=>$candidate]  
+    );
+    }
+     /**
+     * @Route("api/watch", name="apivideo")
+     */
+    public function apivideo(Request $request):Response
     {
         $vote = new Vote();
         $form = $this->createForm(VoteType::class,$vote);
@@ -112,6 +130,7 @@ class BaseController extends AbstractController
         $successTxt = null;
         if($this->session->get("payOk"))
         {
+            //insert vote to db
             $successTxt= "Paiement effectue avec succes";
 
         }
@@ -121,6 +140,39 @@ class BaseController extends AbstractController
         $candidateArray = array_chunk($candidate,5);
         return $this->render('base/vote.html.twig',["votemode"=>$votemode, "candidate"=>$candidate,
          "candidateArray"=>$candidateArray, "successTxt"=>$successTxt]);
+    }
+
+    /**
+     * @Route("api/candidates",name="candidates")
+     */
+    public function apiCandidate(Request $request):Response
+    {
+                
+        //$votemode = $this->getDoctrine()->getRepository(VoteMode::class)->findAll();
+        $candidate = $this->getDoctrine()->getRepository(Candidate::class)->findAll();
+        //$candidateArray = array_chunk($candidate,5);
+        $json = $this->serializer ->serialize(
+            $candidate,
+            'json', null
+        );
+        
+        return new Response($json);
+    }
+
+    /**
+     * @Route("api/votemodes",name="votemodes")
+     */
+    public function apiVotemodes(Request $request):Response
+    {
+                
+        //$votemode = $this->getDoctrine()->getRepository(VoteMode::class)->findAll();
+        $votemode = $this->getDoctrine()->getRepository(VoteMode::class)->findAll();
+        //$candidateArray = array_chunk($candidate,5);
+        $json = $this->serializer ->serialize(
+            $votemode,
+            'json', null
+        );
+        return new Response($json);
     }
 
 }
