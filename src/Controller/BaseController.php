@@ -174,6 +174,29 @@ class BaseController extends AbstractController
         );
         return new Response($json);
     }
+    
+    /**
+     * @Route("/artist/{id}", name="artist")
+     */
+    public function infoArtist(Request $request, int $id):Response{
+        $artist = $this->getDoctrine()->getRepository(Candidate::class)->find($id);
+        $votemode = $this->getDoctrine()->getRepository(VoteMode::class)->findAll();
+        return $this->render('base/artist.html.twig',['artist'=>$artist,'votemode'=>$votemode]);
+    }
+    /**
+     * @Route("/api/votejury",name="votejury")
+     */
+    public function voteJury(Request $request):Response{
+        $txt = "test";
+
+        if($request->getMethod() == "POST"){
+            $data = json_decode($request->getContent(),true);
+            $txt = "success";
+
+        }
+
+        return new Response($txt);
+    }
 
 }
 

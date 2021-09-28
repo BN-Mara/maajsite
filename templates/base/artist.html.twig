@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+{% block title %}Artist-{{artist.firstname}}{% endblock %}
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+{% endblock %}
+{% block body %}
+
+<div class="container-fluid bn-dark-blue">
+
+<div class="container " style="padding-top:20px">
+<div class="bn-blue border rounded-lg" style="height:60px; margin-bottom:20px;">
+<center>
+    <h1 style="color:white">{{artist.firstname}} {{artist.lastname}} <spam class="badge badge-light">{{artist.numero}}</spam></h1>
+<center>
+</div>
+    <div class="row">
+        <div class="col-lg-6">
+            <img class="rounded" src="{{asset('img/maaj01.jfif')}}" class="img-fluid" width="500" height="450" >
+        </div>
+        <div class="col-lg-6">
+            <div class="article__content">
+                <h1>Abstract</h1>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+            </div>
+            <hr>
+            <div class="row bn-dark-blue">
+            <div class="col col-sm-6  bn-dark-blue">
+            <div class=" bn-dark-blue" >
+                <div class="card-body bn-dark-blue">
+                    <div class="article__content"><h3>Votez cet artist</h3></div>
+                    <br>
+                    
+                    <form class="bn-dark-blue">
+                    <p class="card-text bn-dark-blue">
+                    
+                    <input type="hidden" value="{{artist.id}}" name="candid">
+                    <select name="voteid" id="select" class="sign__select" style="width: 100%;background-color:white;color:black;">
+										
+										{% for votem in votemode %}
+										<option value="{{votem.id}}">{{votem.description}}</option>
+										{% endfor %}
+									</select>
+                    
+                    </p>
+                    <button type="submit" class="sign__btn"  formmethod="post" formaction="{{path('app_payment')}}" >Payer</button>
+									</form>	
+                </div>
+            </div>
+            </div>
+            <div class="col col-sm-6">
+            <br><br>
+            <div class="bn-blue rounded article__content" style="padding:20px">
+                <p> Pour voter par USSD Tapez <b>*143*2*67*nombre de vote#</b> Yes</p>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col col-lg-6">
+            <video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+							<!-- Video files -->
+							<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+							<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+							<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
+
+							<!-- Caption files -->
+							<track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+							    default>
+							<track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+
+							<!-- Fallback for browsers that don't support the <video> element -->
+
+			</video>
+        </div>
+        <div class="col col-lg-6">
+            <div class="row" style="padding-top:3rem">
+                <div class="col col-sm-6 p-3" >
+                    <img class="rounded" src="{{asset('img/maaj01.jfif')}}" class="img-fluid" width="250" height="200" >
+                </div>
+                
+                <div class="col col-sm-6 p-3">
+                    <img class="rounded" src="{{asset('img/maaj01.jfif')}}" class="img-fluid" width="250" height="200" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -70,4 +70,8 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Votes }
 
-    
+    admin.candidates_has_media:
+        class: App\Admin\CandidateHasMediaAdmin
+        arguments: [~, App\Entity\CandidateHasMedia, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: CandidateHasMedias }

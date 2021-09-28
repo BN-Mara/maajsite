@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Sonata\MediaBundle\Entity\BaseMedia;
@@ -35,6 +37,16 @@ class SonataMediaMedia extends BaseMedia
      */
     protected $galleryHasMedias;
 
+      /**
+     * @ORM\OneToMany(
+     *     targetEntity=CandidateHasMedia::class,
+     *     mappedBy="media", cascade={"persist"}, orphanRemoval=false
+     * )
+     *
+     * @var CandidateHasMedia[]
+     */
+    protected $candidateHasMedias;
+
     /**
      * Fix annotations if you use classification-bundle.
      *
@@ -52,6 +64,16 @@ class SonataMediaMedia extends BaseMedia
      * @ORM\ManyToOne(targetEntity=Video::class, inversedBy="sonataMediaMedia")
      */
     private $video;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Candidate::class, mappedBy="coverImage", cascade={"persist", "remove"})
+     */
+    private $candidate;
+
+    public function __construct()
+    {
+        $this->candidateHasMedia2s = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -85,4 +107,30 @@ class SonataMediaMedia extends BaseMedia
 
         return $this;
     }
+
+    public function getCandidate(): ?Candidate
+    {
+        return $this->candidate;
+    }
+
+    public function setCandidate(?Candidate $candidate): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($candidate === null && $this->candidate !== null) {
+            $this->candidate->setCoverImage(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($candidate !== null && $candidate->getCoverImage() !== $this) {
+            $candidate->setCoverImage($this);
+        }
+
+        $this->candidate = $candidate;
+
+        return $this;
+    }
+
+ 
+
+
 }

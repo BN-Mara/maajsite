@@ -1,11 +1,4 @@
 /*----------------------------------------
-[Master Stylesheet]
-
-Project:	FlixTV HTML Template
-Version:	1.0
-Primary use:	FlixTV HTML Template
-----------------------------------------*/
-/*----------------------------------------
 [Table of contents]
 
 1. Fonts
@@ -65,9 +58,7 @@ body {
   background-color: #131720;
   -webkit-font-smoothing: antialiased;
 }
-.bnbgcolor{
-  background-color: #131720;
-}
+
 button {
   padding: 0;
   border: none;
@@ -160,12 +151,27 @@ body::-webkit-scrollbar-thumb {
     max-width: 1330px;
   }
 }
+.bn-rounded{
+  border-radius: 25px;
+  padding: 10px;
+}
+.bn-blue{
+  background-color: #2f80ed;
+}
+.bn-dark-blue{
+  background-color: #151f30;
+}
 .bn-bgimage{
   background-image: image(".../img/port05.jpg");
   /*background-repeat: no-repeat; */
 }
 .white{
   color:"white"
+}
+@media (min-width: 748px) {
+  .sm-magin-top{
+    margin-top:5rem
+  }
 }
 
 .num{
@@ -1017,6 +1023,7 @@ body::-webkit-scrollbar-thumb {
   padding: 60px 0;
   position: relative;
   overflow: hidden;
+  
 }
 .section--pb0 {
   padding-top: 0px;
@@ -2889,16 +2896,17 @@ body::-webkit-scrollbar-thumb {
   min-width: 160px;
   height: 50px;
   border-radius: 16px;
-  background-color: #131720;
+  background-color: #B07A12;
+  background-image: linear-gradient(to right, #B07A12 0%, #F4E07B  51%, #C1963A  100%);
   font-size: 14px;
-  color: #e0e0e0;
+  color: #000000;
   text-transform: uppercase;
   font-weight: 500;
   margin-top: 20px;
 }
 .plan__btn:hover {
-  color: #fff;
-  background-color: #2f80ed;
+  color: #000000;
+  background-color: #F4E07B;
 }
 @media (min-width: 768px) {
   .plan {
@@ -4707,7 +4715,7 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 5px;
 }
 .sign__input {
-  background-color: #151f30;
+  background-color: #B07A12;
   border: 1px solid transparent;
   border-radius: 16px;
   height: 44px;
@@ -4718,8 +4726,8 @@ body::-webkit-scrollbar-thumb {
   padding: 0 20px;
 }
 .sign__input:focus {
-  background-color: #151f30;
-  border-color: #2f80ed;
+  background-color: #B07A12;
+  border-color: #F4E07B;
 }
 .sign__select {
   background: url("../img/arrow2.svg") no-repeat center right 20px #151f30;
@@ -4735,10 +4743,10 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 .sign__select:focus {
-  background-color: #151f30;
+  background-color: #F4E07B;
 }
 .sign__textarea {
-  background-color: #151f30;
+  background-color: #B07A12;
   border: 1px solid transparent;
   border-radius: 16px;
   height: 144px;
@@ -4750,8 +4758,8 @@ body::-webkit-scrollbar-thumb {
   resize: none;
 }
 .sign__textarea:focus {
-  background-color: #151f30;
-  border-color: #2f80ed;
+  background-color: #B07A12;
+  border-color: #F4E07B;
 }
 .sign__group {
   display: flex;
@@ -4842,9 +4850,9 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 50px;
   border-radius: 16px;
-  background-color: #2f80ed;
+  background-color: #F4E07B;
   font-size: 14px;
-  color: #e0e0e0;
+  color: #050505;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -5499,4 +5507,121 @@ body::-webkit-scrollbar-thumb {
 }
 .plyr--video .plyr__control svg {
   filter: none;
+}
+/** added ***/
+.bnbgcolor{
+  background-color: #131720;
+}
+
+.bn-color{
+  color: #B07A12;
+}
+.bn-color-light{
+  color:#F4E07B;
+}
+.bn-title{
+  color:#B07A12;
+  font-size: 2.5rem;
+   text-align: left; 
+   text-shadow: whitesmoke;
+    font-weight: bolder;
+}
+.bn-aftertitle{
+  margin-right: 7rem;
+  text-align: justify;
+  
+}
+
+.bn-top-bottom{
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+.bn-annimate{
+  animation: topToBottom ease 4s;
+  -webkit-animation: topToBottom ease 4s;
+  -moz-animation: topToBottom ease 4s;
+  -o-animation: topToBottom ease 4s;
+  -ms-animation: topToBottom ease 4s;
+}
+
+hr {
+  background: linear-gradient(to right, #B07A12, #F4E07B,#B07A12);
+  height: 3px;
+  border-radius: 50%;
+  -webkit-animation: thread2 10s infinite;
+  	-moz-animation:    thread2 10s infinite;
+  	-o-animation:      thread2 10s infinite;
+  	animation:         thread2 10s infinite;	
+}
+
+@-webkit-keyframes thread2 {
+  0%   { width: 100%; }
+  50% { width: 100%; }
+  80% { width: 0px;}
+  100%{ width:100%;}
+}
+@-moz-keyframes thread2 {
+  0%   { width: 100%; }
+  50% { width: 100%; }
+  80% { width: 0px;}
+  100%{ width:100%;}
+}
+@-o-keyframes thread2 {
+  0%   { width: 100%; }
+  50% { width: 100%; }
+  80% { width: 0px;}
+  100%{ width:100%;}
+}
+@keyframes thread2 {
+  0%   { width: 100%; }
+  50% { width: 100%; }
+  80% { width: 0px;}
+  100%{ width:100%;}
+}
+@keyframes topToBottom {
+  0% {
+    margin-top: -23%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+@-moz-keyframes topToBottom {
+  0% {
+    margin-top: -23%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+@-webkit-keyframes topToBottom {
+  0% {
+    margin-top: -23%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+@-o-keyframes topToBottom {
+  0% {
+    margin-top: -23%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+@-ms-keyframes topToBottom {
+  0% {
+    margin-top: -23%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+.bn-annim{
+  
 }

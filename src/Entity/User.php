@@ -58,9 +58,20 @@ class User implements UserInterface
      */
     private $apiToken;
 
+    /**
+     * @ORM\OneToOne(targetEntity=VoteJury::class, mappedBy="jury", cascade={"persist", "remove"})
+     */
+    private $voteJury;
+
+    /**
+     * @ORM\OneToMany(targetEntity=VoteJury::class, mappedBy="jury")
+     */
+    private $voteJuries;
+
     public function __construct()
     {
         $this->subscriptions = new ArrayCollection();
+        $this->voteJuries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -206,6 +217,58 @@ class User implements UserInterface
     public function setApiToken(?string $apiToken): self
     {
         $this->apiToken = $apiToken;
+
+        return $this;
+    }
+
+    public function getVoteJury(): ?VoteJury
+    {
+        return $this->voteJury;
+    }
+
+    public function setVoteJury(?VoteJury $voteJury): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($voteJury === null && $this->voteJury !== null) {
+            $this->voteJury->setJury(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($voteJury !== null && $voteJury->getJury() !== $this) {
+            $voteJury->setJury($this);
+        }
+
+        $this->voteJury = $voteJury;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|VoteJury[]
+     */
+    public function getVoteJuries(): Collection
+    {
+        return $this->voteJuries;
+    }
+
+    public function addVoteJury(VoteJury $voteJury): self
+    {
+        if (!$this->voteJuries->contains($voteJury)) {
+            $this->voteJuries[] = $voteJury;
+            $voteJury->setJury($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVoteJury(VoteJury $voteJury): self
+    {
+        if ($this->voteJuries->removeElement($voteJury)) {
+            // set the owning side to null (unless already changed)
+            if ($voteJury->getJury() === $this) {
+                $voteJury->setJury(null);
+            }
+        }
 
         return $this;
     }
