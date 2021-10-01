@@ -53,12 +53,9 @@ class PaymentController extends AbstractController
             //die($user);
             $subscription = $this->getDoctrine()->getRepository(Subscription::class)->findOneBy(["user"=>$user->getId()]);
             
-            $vote = new Vote();
-            $vote->setCandidate($candidate);
-            $vote->setNumberOfVote($votemode->getQuantity());
-            $vote->setSubscription($subscription);
-            $em->persist($vote);
-            $em->flush();
+            
+            /*$em->persist($vote);
+            $em->flush();*/
 
             //$votemode = 
             
@@ -67,10 +64,17 @@ class PaymentController extends AbstractController
 
         //$amount = 100;  // get an amount, e.g. from your cart
         $transaction = new Transaction($votemode->getPrice());
+        
+        $this->session->set("artist",$candidate);
+        $this->session->set("vote",$votemode);
+        $this->session->set("subscription",$subscription);
+        $this->session->set("voting",["subs"=>$subscription,"vote"=>$votemode,"artist"=>$candidate]);
+
         try {
                 $response = $service->setTransaction($transaction, ['noShipping' => 1])->start();
                 $this->getDoctrine()->getManager()->persist($transaction);
                 $this->getDoctrine()->getManager()->flush();
+                
 
                 return $this->redirect($response->getRedirectUrl());
             } catch (Exception $e) {
@@ -89,11 +93,15 @@ class PaymentController extends AbstractController
         $transaction->cancel(null);
         $this->getDoctrine()->getManager()->flush();
 
-        return new Response(); // or a Response...
+        return $this->render('payment/cancel.html.twig',[]); // or a Response...
     }
     
     public function completedPayment(Service $service, Request $request)
     {
+        if(!$this->session->has("voting")){
+            return $this->redirectToRoute("vote");
+        }
+        //insert transaction
         $token = $request->query->get('token');
         $transaction = $this->getDoctrine()->getRepository(Transaction::class)->findOneBy(["token"=>$token]);
         if (null === $transaction) {
@@ -104,9 +112,31 @@ class PaymentController extends AbstractController
         if (!$transaction->isOk()) {
             return new Response(var_dump($transaction)); // or a Response (in case of error)
         }
+        //$artist = $this->session->get("artist");
+        //$votemode = $this->session->get("vote");
+        $votemode = $this->getDoctrine()->getRepository(VoteMode::class)->find($this->session->get("vote")->getId());
+        $artist = $this->getDoctrine()->getRepository(Candidate::class)->find($this->session->get("artist")->getId());
+        $user = $this->getUser();
+            //die($user);
+        $subscription = $this->getDoctrine()->getRepository(Subscription::class)->findOneBy(["user"=>$user->getId()]);
+        
+        $vote = new Vote();
+            $vote->setCandidate($artist);
+            $vote->setNumberOfVote($votemode->getQuantity());
+            $vote->setSubscription($subscription);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($vote );
+        $em->flush();
+
         $this->session->set("payOk","ok");
 
-        return $this->redirectToRoute("vote"); // or a Response (in case of success)
+        //return $this->redirectToRoute("vote"); // or a Response (in case of success)
+        
+        $this->session->remove("artist");
+        $this->session->remove("vote");
+        $this->session->remove("voting");
+        return $this->render('payment/success.html.twig',['candidate'=>$artist,
+    "vote"=>$votemode]);
     }
     
 }

@@ -1,8 +1,8 @@
 beelab_paypal:
-    username: "sb-i81pm6343826_api1.business.example.com"
-    password: "2HC8QRNQR5MBMR5M"
-    signature: "AEgNpJ7JBo2Og4krjrjA-mSf4bAxAPK0PfIzZA1S3VJezqbfMN.Fr3ju"
+    username: "talentmaajabu466_api1.gmail.com"
+    password: "PUKZUZR26ZNN3FXP"
+    signature: "An4jKYyOSvK91UCDJqRegMA7vKcsAPo-DzRbBokD9-fx1PTjKFlhviIK"
     return_route: "app_payment_complete"
     cancel_route: "app_payment_canceled"
-    test_mode: "%kernel.debug%"
+    test_mode: false
     currency: "USD"

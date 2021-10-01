@@ -22,9 +22,9 @@
     {% for c in ca %}
         <div class="col-sm">  
             <div class="card fluid" >
-                    <img class="card-img-top" src="{{asset('img/maaj01.jfif')}}" alt="Card image cap">
+                    <a href="{{path('artist',{id:c.id})}}"><img class="card-img-top" src="{{asset('img/maaj01.jfif')}}" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{c.firstname}} <spam class="num">{{c.numero}}</spam></h5>
+                    <h5 class="card-title">{{c.firstname}} <spam class="num">{{c.numero}}</spam></h5></a>
                     <form>
                     <p class="card-text">
                     <input type="hidden" value="votepage" name="mpage">

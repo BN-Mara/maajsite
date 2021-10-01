@@ -27,7 +27,7 @@
             <div class="col col-sm-6  bn-dark-blue">
             <div class=" bn-dark-blue" >
                 <div class="card-body bn-dark-blue">
-                    <div class="article__content"><h3>Votez cet artist</h3></div>
+                    <div class="article__content"><h4>Votez cet artist</h4></div>
                     <br>
                     
                     <form class="bn-dark-blue">
@@ -56,9 +56,9 @@
             </div>
         </div>
     </div>
-    <div class="row" >
+    <div class="row" style="padding-bottom:2rem">
         <div class="col col-lg-6">
-            <video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+            <video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player" style="width:100%">
 							<!-- Video files -->
 							<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
 							<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
@@ -73,16 +73,29 @@
 
 			</video>
         </div>
-        <div class="col col-lg-6">
-            <div class="row" style="padding-top:3rem">
-                <div class="col col-sm-6 p-3" >
-                    <img class="rounded" src="{{asset('img/maaj01.jfif')}}" class="img-fluid" width="250" height="200" >
-                </div>
-                
-                <div class="col col-sm-6 p-3">
-                    <img class="rounded" src="{{asset('img/maaj01.jfif')}}" class="img-fluid" width="250" height="200" >
+        <div class="col col-lg-3">
+            
+            <div class="card" >
+                <img class="card-img-top" src="{{asset('img/maaj01.jfif')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{artist.firstname}}</h5>
+                    <p class="card-text">Some quick example text to build.</p>
+                    <a href="#" class="sign__btn">Read more...</a>
                 </div>
             </div>
+            
+        </div>
+        <div class="col col-lg-3">
+            
+            <div class="card" >
+                <img class="card-img-top" src="{{asset('img/maaj01.jfif')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{artist.firstname}}</h5>
+                    <p class="card-text">Some quick example text to build.</p>
+                    <a href="#" class="sign__btn">Read more...</a>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>

@@ -55,7 +55,7 @@ body {
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  background-color: #131720;
+  background-color: #000;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -156,10 +156,10 @@ body::-webkit-scrollbar-thumb {
   padding: 10px;
 }
 .bn-blue{
-  background-color: #2f80ed;
+  background-color: #B07A12;
 }
 .bn-dark-blue{
-  background-color: #151f30;
+  background-color: #121213;
 }
 .bn-bgimage{
   background-image: image(".../img/port05.jpg");
@@ -217,7 +217,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #131720;
+  background-color: #000;
   z-index: 99;
   transition: 0.5s, margin 0s;
 }
@@ -250,7 +250,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: flex-start;
   align-items: flex-start;
   position: fixed;
-  background-color: #131720;
+  background-color: #000;
   top: -250px;
   left: 0;
   width: 100%;
@@ -258,7 +258,7 @@ body::-webkit-scrollbar-thumb {
   height: 250px;
   padding: 20px;
   transition: 0.5s;
-  background: #131720;
+  background: #000;
   border-bottom: 1px solid #151f30;
 }
 .header__nav--active {
@@ -432,7 +432,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   bottom: -80px;
   height: 80px;
-  background-color: #131720;
+  background-color: #000;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -702,7 +702,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   display: block;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(21,31,48,0.35) 0%, #131720 100%);
+  background: linear-gradient(180deg, rgba(21,31,48,0.35) 0%, #000 100%);
 }
 .home--title .container,
 .home--title .home__carousel {
@@ -1043,7 +1043,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   display: block;
   z-index: 1;
-  background: linear-gradient(0deg, rgba(21,31,48,0.35) 0%, #131720 100%);
+  background: linear-gradient(0deg, rgba(21,31,48,0.35) 0%, #000 100%);
   pointer-events: none;
 }
 .section--gradient .container {
@@ -1078,7 +1078,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   display: block;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(19,23,32,0.5) 0%, #131720 100%);
+  background: linear-gradient(180deg, rgba(19,23,32,0.5) 0%, #000 100%);
   pointer-events: none;
 }
 .section__title {
@@ -1389,7 +1389,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   display: block;
   z-index: 1;
-  background: linear-gradient(0deg, rgba(21,31,48,0.35) 0%, #131720 100%);
+  background: linear-gradient(0deg, rgba(21,31,48,0.35) 0%, #000 100%);
 }
 .catalog .container {
   z-index: 2;
@@ -1474,7 +1474,7 @@ body::-webkit-scrollbar-thumb {
   width: 30px;
   height: 30px;
   border-radius: 12px;
-  background-color: #131720;
+  background-color: #000;
   font-size: 14px;
   color: #e0e0e0;
   font-weight: 500;
@@ -1537,7 +1537,7 @@ body::-webkit-scrollbar-thumb {
     position: sticky;
     top: -1px;
     z-index: 99;
-    background-color: #131720;
+    background-color: #000;
     border-radius: 0 0 16px 16px;
   }
   .catalog__nav:before {
@@ -2707,7 +2707,7 @@ body::-webkit-scrollbar-thumb {
   min-width: 160px;
   height: 50px;
   border-radius: 16px;
-  background-color: #131720;
+  background-color: #000;
   font-size: 14px;
   color: #e0e0e0;
   text-transform: uppercase;
@@ -3162,7 +3162,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   padding: 0 10px;
   height: 30px;
-  background-color: #131720;
+  background-color: #000;
   font-size: 12px;
   margin-left: 15px;
   color: #e0e0e0;
@@ -3856,7 +3856,7 @@ body::-webkit-scrollbar-thumb {
   padding: 20px;
   border-radius: 16px;
   border: 1px solid rgba(47,128,237,0.1);
-  background-color: #131720;
+  background-color: #000;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -4025,7 +4025,7 @@ body::-webkit-scrollbar-thumb {
   min-height: 80px;
   border-radius: 16px;
   color: #e0e0e0;
-  background-color: #131720;
+  background-color: #000;
 }
 .comments__item {
   margin-bottom: 20px;
@@ -4136,7 +4136,7 @@ body::-webkit-scrollbar-thumb {
   padding: 20px;
   border: 1px solid rgba(47,128,237,0.1);
   margin-top: 60px;
-  background-color: #131720;
+  background-color: #000;
 }
 .comments__form .row {
   margin-left: -10px;
@@ -4265,7 +4265,7 @@ body::-webkit-scrollbar-thumb {
   padding: 20px;
   border: 1px solid rgba(47,128,237,0.1);
   margin-top: 60px;
-  background-color: #131720;
+  background-color: #000;
 }
 .reviews__form .row {
   margin-left: -10px;
@@ -4452,7 +4452,7 @@ body::-webkit-scrollbar-thumb {
 	Footer
 ==============================*/
 .footer {
-  background-color: #131720;
+  background-color: #000;
   padding: 30px 0;
   position: relative;
   overflow: hidden;
@@ -4466,7 +4466,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   display: block;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(21,31,48,0.35) 0%, #131720 100%);
+  background: linear-gradient(180deg, rgba(7, 7, 7, 0.35) 0%, #000 100%);
 }
 .footer .container {
   z-index: 2;
@@ -4652,7 +4652,7 @@ body::-webkit-scrollbar-thumb {
   padding: 40px 0;
 }
 .sign__form {
-  background-color: #131720;
+  background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -5060,7 +5060,7 @@ body::-webkit-scrollbar-thumb {
   padding: 40px 0;
 }
 .page-404__content {
-  background-color: #131720;
+  background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -5122,7 +5122,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: #131720;
+  background-color: #000;
   padding: 5px 0;
   border-radius: 16px;
   margin-top: 10px;
@@ -5174,7 +5174,7 @@ body::-webkit-scrollbar-thumb {
 .modal {
   position: relative;
   display: block;
-  background-color: #131720;
+  background-color: #000;
   margin: 40px auto;
   width: 100%;
   max-width: 440px;
@@ -5212,7 +5212,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .mfp-bg {
-  background-color: #131720;
+  background-color: #000;
 }
 .mfp-container {
   padding: 0 15px !important;
@@ -5220,7 +5220,7 @@ body::-webkit-scrollbar-thumb {
 .mfp-iframe-scaler iframe {
   border-radius: 16px;
   box-shadow: none;
-  background-color: #131720;
+  background-color: #000;
   border: 1px solid rgba(47,128,237,0.1);
 }
 .mfp-iframe-holder .mfp-content {
@@ -5233,7 +5233,7 @@ body::-webkit-scrollbar-thumb {
 }
 .mfp-figure::after {
   box-shadow: none;
-  background-color: #131720;
+  background-color: #000;
 }
 .mfp-fade.mfp-bg {
   opacity: 0;
@@ -5373,7 +5373,7 @@ body::-webkit-scrollbar-thumb {
 	Scrollbar-track
 ==============================*/
 .scrollbar-track-y {
-  background: #131720 !important;
+  background: #000 !important;
   top: 10px !important;
   bottom: 10px !important;
   height: auto !important;
@@ -5388,7 +5388,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 4px !important;
 }
 .scrollbar-track-x {
-  background: #131720 !important;
+  background: #000 !important;
   left: 10px !important;
   right: 10px !important;
   height: 4px !important;
@@ -5510,7 +5510,7 @@ body::-webkit-scrollbar-thumb {
 }
 /** added ***/
 .bnbgcolor{
-  background-color: #131720;
+  background-color: #000;
 }
 
 .bn-color{
