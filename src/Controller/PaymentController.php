@@ -15,6 +15,7 @@ use Beelab\PaypalBundle\Paypal\Service;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PaymentController extends AbstractController
 {
@@ -63,6 +64,7 @@ class PaymentController extends AbstractController
            
 
         //$amount = 100;  // get an amount, e.g. from your cart
+
         $transaction = new Transaction($votemode->getPrice());
         
         $this->session->set("artist",$candidate);
@@ -71,12 +73,27 @@ class PaymentController extends AbstractController
         $this->session->set("voting",["subs"=>$subscription,"vote"=>$votemode,"artist"=>$candidate]);
 
         try {
-                $response = $service->setTransaction($transaction, ['noShipping' => 1])->start();
+
+               /* $response = $service->setTransaction($transaction, ['noShipping' => 1])->start();
                 $this->getDoctrine()->getManager()->persist($transaction);
                 $this->getDoctrine()->getManager()->flush();
                 
 
                 return $this->redirect($response->getRedirectUrl());
+                */
+                $pageDescription="";
+                $fullname="";
+                $phone  = "";
+                $email = "";
+                $reference="";
+                $currency ="USD";
+                $amount = "40";
+                $merchant = "b255c76a-41cc-4398-bfd2-b2f9e3238c2d";
+
+                $url = "araca.com?pageDescription=".$pageDescription."customerFullName=".$fullname.
+                "&customerPhoneNumber=".$phone."&customerEmailAddress=".$email."&transactionReference=".
+                $reference."&currency=".$currency."&amount=".$amount."&merchant=".$merchant;
+                return  new RedirectResponse($url);
             } catch (Exception $e) {
                 throw new HttpException(503, 'Payment error', $e);
             }

@@ -19,7 +19,7 @@
 </div>
 <section class="section ">
 <div class="d-flex justify-content-center">
-<div class="container card" style="width: 25rem;"> 
+<div class="container card" style="width: 100rem;"> 
 <br>    
 <h1 class="text-center">Create Account</h1>
 
@@ -28,17 +28,36 @@
       <div class="container" style="width:100%">  
 
     {{ form_start(registrationForm) }}
-    
-        {{ form_row(registrationForm.email) }}
+    <div class="row">
+    <div class="col-lg-6 col-sm-12">
+    {{ form_row(registrationForm.firstName) }}
+    </div>
+    <div class="col-lg-6 col-sm-12">
+    {{ form_row(registrationForm.lastName) }}
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12">
+    {{ form_row(registrationForm.phoneNumber) }}
         
-       
-        {{ form_row(registrationForm.plainPassword,{
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-6 col-sm-12">
+        {{ form_row(registrationForm.email) }}       
+     </div>
+    <div class="col-lg-6 col-sm-12">
+    {{ form_row(registrationForm.plainPassword,{
             label:"Password",
         }) }}
+    </div>
+    
+     </div>
+     
 
      
         <br>
-        <button type="submit" class="btn btn-primary" style="width:100%;">Register</button>
+        <button type="submit" class="btn bn-blue" style="width:100%;background-color:#B07A12">Register</button>
         
     {{ form_end(registrationForm) }}
     <br>

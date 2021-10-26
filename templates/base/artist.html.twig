@@ -8,14 +8,16 @@
 <div class="container-fluid bn-dark-blue">
 
 <div class="container " style="padding-top:20px">
-<div class="bn-blue border rounded-lg" style="height:60px; margin-bottom:20px;">
+<div class="rounded-lg" style="height:60px; margin-bottom:20px;
+background-image:linear-gradient(to right, #B07A12 0%, #F4E07B  51%, #C1963A  100%)
+">
 <center>
-    <h1 style="color:white">{{artist.firstname}} {{artist.lastname}} <spam class="badge badge-light">{{artist.numero}}</spam></h1>
+    <h1 style="color:black">{{artist.firstname}} {{artist.lastname}} <spam class="badge badge-dark">{{artist.numero}}</spam></h1>
 <center>
 </div>
     <div class="row">
         <div class="col-lg-6">
-            <img class="rounded" src="{{asset('img/maaj01.jfif')}}" class="img-fluid" width="500" height="450" >
+            <img class="rounded" src="{{asset('img/maaj01.jfif')}}" class="img-fluid" style="width:100%">
         </div>
         <div class="col-lg-6">
             <div class="article__content">

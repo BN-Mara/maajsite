@@ -5625,3 +5625,6 @@ hr {
 .bn-annim{
   
 }
+.bg-linear{
+  background-image:linear-gradient(to right, #B07A12 0%, #F4E07B  51%, #C1963A  100%)
+}
